@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 session_start();
 
 // Include database connection (ensure db.php is configured correctly)
-include 'db.php';
+//include 'db.php';
 
 // Check if user is logged in (placeholder logic)
 $loggedIn = isset($_SESSION['user_id']);
@@ -28,7 +28,7 @@ $userName = $loggedIn ? $_SESSION['username'] : 'Guest';
     <?php if ($loggedIn): ?>
         <p>Welcome, <?php echo htmlspecialchars($userName); ?>! <a href="logout.php">Logout</a></p>
     <?php else: ?>
-        <p>Please <a href="login.html">login</a> or <a href="users/register.html">register</a>.</p>
+    
     <?php endif; ?>
 
     <nav>
@@ -36,28 +36,10 @@ $userName = $loggedIn ? $_SESSION['username'] : 'Guest';
         <a href="login.html">Login</a> |
         <a href="submit_repair.html">Submit Repair Request</a> |
         <a href="display.php">View Repairs</a>
-        <?php if ($loggedIn): ?>
-            | <a href="admin.php">Admin Panel</a>
-        <?php endif; ?>
+        
     </nav>
 
-    <?php
-    // Example dynamic content (e.g., display a welcome message or repair count)
-    echo "<p>PHP is working!</p>";
-
-    // Optional: Query the database for a repair count (uncomment to test)
-    /*
-    $result = $conn->query("SELECT COUNT(*) as total FROM Repairs");
-    if ($result) {
-        $row = $result->fetch_assoc();
-        echo "<p>Total repair requests: " . htmlspecialchars($row['total']) . "</p>";
-    } else {
-        echo "<p>Error querying database: " . $conn->error . "</p>";
-    }
-    */
-
-    $conn->close();
-    ?>
+    <p>QuickFix is your one-stop solution for all vehicle repair needs. Our team of experienced mechanics are here to help you get back on the road in no time!</p>
 
 </body>
 </html>
