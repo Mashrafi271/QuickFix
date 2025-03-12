@@ -24,7 +24,11 @@ echo "test 12";
     </a>
 
     <a href="http://localhost/QUICKFIX/testlogin.php">
-        <button>Testing login</button>
+        <button>Login</button>
+    </a>
+
+    <a href="http://localhost/QUICKFIX/orderservice.php">
+        <button>Orders</button>
     </a>
 </body>
 
