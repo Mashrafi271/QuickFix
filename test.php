@@ -1,3 +1,51 @@
 <?php
-echo "Hello, this is a PHP test!";
+//this is where all the learning or practice code will be saved
+
+//diff printing methods
+echo "Hello World <br>";
+echo "Pineapples are not bussin lol <br>";
+
+$huh = "apples are sweet"; //str variable
+echo "But {$huh} <br>";
+echo "But $huh <br>";
+
+$varage = 23; //int variable
+echo "I am $varage years old <br>";
+
+$gpa = 2.94; //float variable
+echo "My gpa is $gpa <br>";
+
+//displaying a dollar sign with echo:
+$price = 3.2;
+echo "The price of an apple is \$$price <br>"; //escape character '/' needed before the $ sign\
+
+$boolval = true; //boolean variable
+$boolval2 = false;
+echo "The value of the boolean variable is $boolval <br>"; //doesnt output the bool val if false. displays 1 as output if true
+echo "The value of the boolean variable2 is $boolval2 <br>";
+
+echo "test.php 1 ";
+
+$z = 2.5 * 4;
+echo "<br>$z";
+?>
+
+<?php
+// $_GET, $_POST = special variables used to collect data from an HTML form
+// data is sent to the file in the action attribute of <form>
+// <form action="some_file.php" method="get">
+
+// $_GET = Data is appended to the url
+// NOT SECURE
+// char limit
+// Bookmark is possible w/ values
+// GET requests can be cached
+// Better for a search page
+
+// $_POST = Data is packaged inside the body of the HTTP request
+// MORE SECURE
+// No data limit
+// Cannot bookmark
+// GET requests are not cached
+// Better for submitting credentials
 ?>
