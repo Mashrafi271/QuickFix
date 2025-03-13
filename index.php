@@ -6,7 +6,7 @@
     variable names start with a $ sign
 */
 
-echo "test 12";
+echo "test r";
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +29,10 @@ echo "test 12";
 
     <a href="http://localhost/QUICKFIX/orderservice.php">
         <button>Orders</button>
+    </a>
+
+    <a href="http://localhost/QUICKFIX/db.php">
+        <button>Test DB</button>
     </a>
 </body>
 

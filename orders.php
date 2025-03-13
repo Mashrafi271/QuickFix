@@ -6,7 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="orders.php" method="post">
+        <label for=""></label>
+    </form>
 </body>
 </html>
 
