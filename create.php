@@ -23,13 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $created = $_POST['created'];
 
-    // Use $conn with MySQLi prepared statement
     $stmt = mysqli_prepare($conn, "INSERT INTO contacts (name, email, phone, title, created) VALUES (?, ?, ?, ?, ?)");
     mysqli_stmt_bind_param($stmt, "sssss", $name, $email, $phone, $title, $created);
-    // Execute and set $msg based on success or failure
     if (mysqli_stmt_execute($stmt)) {
+        $new_id = mysqli_insert_id($conn); // Get the ID of the newly inserted contact
         $msg = "Contact created successfully! Redirecting in <span id=\"countdown\">2</span> seconds...";
-        // Remove the immediate header redirect; JavaScript will handle it
     } else {
         $msg = "Error creating contact: " . mysqli_stmt_error($stmt);
     }
@@ -66,9 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             countdownElement.textContent = timeLeft;
             if (timeLeft <= 0) {
                 clearInterval(countdown);
-                window.location.href = 'contacts.php'; // Redirect after 2 seconds
+                window.location.href = 'contacts.php?new_id=<?php echo $new_id; ?>'; // Pass the new ID in the URL
             }
-        }, 1000); // Update every 1 second
+        }, 1000);
     </script>
     <?php endif; ?>
     <?php endif; ?>

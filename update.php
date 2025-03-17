@@ -1,7 +1,7 @@
 <?php
 include 'functions.php';
 
-// MySQLi connection (assuming it's similar to your other files)
+// MySQLi connection
 $db_server = "localhost";
 $db_user = "root";
 $db_pass = "";
@@ -17,10 +17,8 @@ try {
 }
 
 $msg = '';
-// Check if the contact id exists, for example update.php?id=1 will get the contact with the id of 1
 if (isset($_GET['id'])) {
     if (!empty($_POST)) {
-        // This part is similar to create.php, but instead we update a record and not insert
         $id = isset($_POST['id']) ? $_POST['id'] : NULL;
         $name = isset($_POST['name']) ? $_POST['name'] : '';
         $email = isset($_POST['email']) ? $_POST['email'] : '';
@@ -28,19 +26,17 @@ if (isset($_GET['id'])) {
         $title = isset($_POST['title']) ? $_POST['title'] : '';
         $created = isset($_POST['created']) ? $_POST['created'] : date('Y-m-d H:i:s');
         
-        // Update the record using MySQLi prepared statement
         $stmt = mysqli_prepare($conn, "UPDATE contacts SET id = ?, name = ?, email = ?, phone = ?, title = ?, created = ? WHERE id = ?");
         mysqli_stmt_bind_param($stmt, "issssss", $id, $name, $email, $phone, $title, $created, $_GET['id']);
         if (mysqli_stmt_execute($stmt)) {
-            $msg = 'Updated Successfully!';
-            header('Location: contacts.php');
+            $msg = "Updated successfully! Redirecting in <span id=\"countdown\">2</span> seconds...";
+            $updated_id = $_GET['id']; // Store the updated ID for the redirect
         } else {
-            $msg = 'Error updating contact: ' . mysqli_stmt_error($stmt);
+            $msg = "Error updating contact: " . mysqli_stmt_error($stmt);
         }
         mysqli_stmt_close($stmt);
     }
     
-    // Get the contact from the contacts table
     $stmt = mysqli_prepare($conn, "SELECT * FROM contacts WHERE id = ?");
     mysqli_stmt_bind_param($stmt, "i", $_GET['id']);
     mysqli_stmt_execute($stmt);
@@ -56,7 +52,7 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<?=template_header('Read', 'QuickFix')?>
+<?=template_header('Update', 'QuickFix')?>
 
 <div class="content update">
     <h2>Update Contact #<?=$contact['id']?></h2>
@@ -77,6 +73,20 @@ if (isset($_GET['id'])) {
     </form>
     <?php if ($msg): ?>
     <p><?=$msg?></p>
+    <?php if (strpos($msg, 'Updated successfully') === 0): ?>
+    <script>
+        let timeLeft = 2;
+        const countdownElement = document.getElementById('countdown');
+        const countdown = setInterval(() => {
+            timeLeft--;
+            countdownElement.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                window.location.href = 'contacts.php?updated_id=<?php echo $updated_id; ?>'; // Redirect with updated ID
+            }
+        }, 1000);
+    </script>
+    <?php endif; ?>
     <?php endif; ?>
 </div>
 
