@@ -8,7 +8,7 @@
 
 //include any files that this file will work with at the top here, in this php block:
 include("db.php");
-echo "testttttt<br>";
+echo "huh<br>";
 
 //your sql queries go here, between include db and close conn
 $sql = "INSERT INTO users (user, password)
@@ -60,6 +60,10 @@ mysqli_close($conn); //intelephense extension might give an error cause we r inc
 
     <a href="http://localhost/QUICKFIX/db.php">
         <button>Test DB</button>
+    </a>
+
+    <a href="http://localhost/QUICKFIX/home.php">
+        <button>Home Page!!!!</button>
     </a>
     <br> <!-- creates a new line after the series of test buttons -->
 

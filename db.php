@@ -21,7 +21,7 @@ try{
 //add all the variables you initialized above, as parameters for the connection function
 //if u establish a successful conneciton, this $conn variable represents an object
 } catch(mysqli_sql_exception){
-    echo "Fix ur code lil bro u are not that good<br>";
+    echo "Fix ur db.php code lil bro u are not that good<br>";
 }
 
 /*
