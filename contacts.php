@@ -20,7 +20,7 @@ try {
 // Get the page via GET request (URL param: page), if none exists default to 1
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 // Number of records to show on each page
-$records_per_page = 5;
+$records_per_page = 1000;
 
 // Prepare the SQL statement to get records from the contacts table with pagination
 $stmt = $conn->prepare('SELECT * FROM contacts ORDER BY id LIMIT :current_page, :record_per_page');
