@@ -6,9 +6,18 @@
     variable names start with a $ sign
 */
 
+//auto redirect to main home page, away from this test landing page
+header("Location: home.php");
+exit();
+
+
+
+
+
+//the following is ubreachable code
 //include any files that this file will work with at the top here, in this php block:
 include("db.php");
-echo "huh<br>";
+echo "hudwqdh<br>";
 
 //your sql queries go here, between include db and close conn
 $sql = "INSERT INTO users (user, password)
