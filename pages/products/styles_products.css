@@ -1,60 +1,97 @@
-/* Basic CSS for the grid layout */
+/* pages/products/styles/products.css */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
-}
-
-nav {
-    background-color: #333;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-}
-
-nav a:hover {
-    text-decoration: underline;
+    background-color: #f4f4f4; /* Light background for the page */
 }
 
 h1 {
     text-align: center;
     color: #333;
+    margin-bottom: 30px;
 }
 
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
+/* --- Grid Styling --- */
+.product-container {
+    display: grid; /* Use CSS Grid */
+    /*
+       Create responsive columns:
+       - auto-fill: Create as many columns as fit in the container.
+       - minmax(250px, 1fr): Each column should be at least 250px wide,
+         but can grow equally (1fr) to fill extra space.
+    */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px; /* Spacing between grid items (rows and columns) */
+    max-width: 1200px; /* Optional: Maximum width for the grid container */
+    margin: 0 auto; /* Center the container on the page */
+    padding: 10px;
 }
 
+/* --- Styling for each product card --- */
 .product-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
+    background-color: #fff; /* White background for cards */
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex; /* Use flexbox *inside* the card for content alignment */
+    flex-direction: column; /* Stack card content vertically */
+    justify-content: space-between; /* Push price/button to bottom */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
 }
 
-.product-card h3 {
-    margin: 0;
+.product-card:hover {
+    transform: translateY(-5px); /* Lift card slightly on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.product-card img {
+    max-width: 100%; /* Ensure image doesn't overflow card */
+    height: 180px; /* Fixed height for consistency */
+    object-fit: contain; /* Scale image nicely within the height */
+    margin-bottom: 15px;
+    border-radius: 4px; /* Slightly rounded image corners */
+}
+
+.product-card h2 {
+    font-size: 1.2em; /* Product name size */
     color: #333;
-}
-
-.product-card p {
-    color: #666;
     margin: 10px 0;
 }
 
-.product-card .price {
-    font-size: 1.2em;
-    color: #2ecc71;
-    font-weight: bold;
+.product-card p {
+    font-size: 0.9em;
+    color: #666; /* Description text color */
+    line-height: 1.4;
+    flex-grow: 1; /* Allow description to take up available space */
+    margin-bottom: 15px;
 }
+
+.product-card p.price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff; /* Price color */
+    margin-top: auto; /* Push price to the bottom */
+}
+
+/* Optional: Style for a button if you add one */
+/*
+.product-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.product-card button:hover {
+    background-color: #0056b3;
+}
+*/
+

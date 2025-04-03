@@ -1,20 +1,5 @@
 <?php
 
-$db_server = "localhost"; 
-$db_user = "root";
-$db_pass = "";
-$db_name = "test"; 
-
-try{
-    $conn = mysqli_connect( 
-        $db_server,
-        $db_user,
-        $db_pass,
-        $db_name
-    );
-} catch(mysqli_sql_exception){
-    echo "Fix ur functions code lil bro u are not that good<br>";
-}
 
 function template_header($title, $subtitle) {
 echo <<<EOT
