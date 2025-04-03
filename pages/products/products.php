@@ -21,40 +21,14 @@ $result = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Products</title>
-    
+    <link rel="stylesheet" href="styles_products.css">    
 </head>
 <body>
 
     <h1>Our Products</h1>
 
     <div class="product-container">
-        <?php
-        // 4. Check if there are any products returned
-        if ($result && mysqli_num_rows($result) > 0) {
-            // 5. Loop through the results and display each product
-            while ($product = mysqli_fetch_assoc($result)) {
-                ?>
-                <div class="product-card">
-                    <img src="/path/to/your/images/<?php echo htmlspecialchars($product['productimg']); ?>" alt="<?php echo htmlspecialchars($product['productname']); ?>">
-                    <h2><?php echo htmlspecialchars($product['productname']); ?></h2>
-                    <p><?php echo htmlspecialchars($product['productdesc']); ?></p>
-                    <p><strong>Price: $<?php echo htmlspecialchars(number_format($product['price'], 2)); ?></strong></p>
-                    </div>
-                <?php
-            }
-        } else {
-            // If no products are found
-            echo "<p>No products found.</p>";
-        }
-
-        // Free the result set (good practice)
-        if ($result) {
-            mysqli_free_result($result);
-        }
-
-        // Close the database connection (often done at the end of script or in db.php)
-        // mysqli_close($conn);
-        ?>
+    
     </div>
 
 </body>

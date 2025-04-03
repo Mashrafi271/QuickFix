@@ -1,5 +1,7 @@
 <?php
 include 'db.php'; // Links to an external file (db.php) with database connection details
+
+
 ?>
 
 <!DOCTYPE html> 
