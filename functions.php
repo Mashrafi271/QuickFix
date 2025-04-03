@@ -32,7 +32,7 @@ echo <<<EOT
     		<h1>$subtitle</h1>
             <a href="home.php"><i class="fas fa-home"></i>Home</a>
             <a href="repairs.php"><i class="fas fa-car"></i>Repairs</a>
-            <a href="products.php"><i class="fas fa-box"></i>Products</a>
+            <a href="pages/products/products.php"><i class="fas fa-box"></i>Products</a>
     		<a href="contacts.php"><i class="fas fa-address-book"></i>Contacts</a>
     	</div>
     </nav>

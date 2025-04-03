@@ -40,7 +40,7 @@ $num_contacts = $total_records;
 <?=template_header('QuickFix', 'Contacts')?>
 
 <div class="content read">
-    <h2>Read Contacts</h2>
+    <h2>Connect with our Moderators!</h2>
     <a href="create.php" class="create-contact">Create Contact</a>
     <table>
         <thead>

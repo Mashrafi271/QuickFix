@@ -1,5 +1,6 @@
 <?php
 include("functions.php");
+include("login\login.php");
 ?>
 
 <?=template_header('QuickFix', 'Home')?>
